@@ -1,0 +1,44 @@
+import React from 'react';
+import Avatar from 'material-ui/lib/avatar';
+import Paper from 'material-ui/lib/paper';
+import TextField from 'material-ui/lib/text-field';
+import RaisedButton from 'material-ui/lib/raised-button';
+import Divider from 'material-ui/lib/divider';
+
+const underlineStyle = { display: 'none' };
+const style = { marginLeft: 0 };
+
+export default class ButtonApp extends React.Component {
+  render() {
+    return (
+      <div className="row middle-xs center-xs" style={{ width: '100%', textAlign: 'initial' }}>
+        <Paper className="col-xs-10 col-sm-6" zDepth={1}
+          style={{ width: 'auto', padding: 20, margin: 20 }}
+        >
+          <h2>First things first...</h2>
+          <p>Please choose an image and enter your name to continue</p>
+          <div className="row">
+            <div className="col-sm-3 center-xs start-md" >
+              <Avatar size={128}/>
+            </div>
+            <div className="col-sm-9">
+              <TextField hintText="First name" underlineStyle={underlineStyle} style={style} />
+              <Divider />
+              <TextField hintText="Middle name" underlineStyle={underlineStyle} style={style} />
+              <Divider />
+              <TextField hintText="Last name" underlineStyle={underlineStyle} style={style} />
+              <Divider />
+              <TextField hintText="Email address" underlineStyle={underlineStyle} style={style} />
+              <Divider />
+            </div>
+          </div>
+          <div className="row" style={{ marginTop: 20 }}>
+            <div className="col-xs end-xs">
+              <RaisedButton className="col end-xs" label="Continue" primary />
+            </div>
+          </div>
+        </Paper>
+      </div>
+    );
+  }
+}
