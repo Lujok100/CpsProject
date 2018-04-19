@@ -2,6 +2,10 @@ import React from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import ButtonApp from './ButtonApp';
+import TimePickerApp from './TimePickerApp';
+import CheckboxApp1 from './CheckboxApp1';
+import Entries from "./Entries";
 
 
 /**
@@ -11,6 +15,44 @@ import RaisedButton from 'material-ui/RaisedButton';
  * You can also close this dialog by clicking outside the dialog, or with the 'Esc' key.
  */
 class DialogApp extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = {date: null, day: null, entries: []};
+      this.onDateChanged = this.onDateChanged.bind(this);
+  }
+
+  onDateChanged = (date) => {
+      this.setState({
+          date
+      });
+  };
+
+  onAddClick = () => {
+      let entries = this.state.entries;
+      if(this.state.date && this.state.day){
+      entries.push({date: this.state.date, day: this.state.day});
+      this.setState({
+          entries
+      });
+      }else{
+          alert("Please select a date and day");
+      }
+  };
+
+  onDeleteClick = () => {
+    let entries = this.state.entries;
+    entries.pop();
+    this.setState({
+        entries
+    });
+  };
+
+  onDayChange = (day) => {
+      this.setState({
+          day
+      });
+  };
+
   state = {
     open: false,
   };
@@ -25,20 +67,6 @@ class DialogApp extends React.Component {
 
   handlePrint = () => {
     this.setState({open: false});
-    var vTextToPrint;
-
-    var time12h = document.getElementById("timepicker_12h");
-    var time12h = document.getElementById("timepicker_12h");
-    var time12hVal = time12h.value;
-    var time24hVal = time12h.value;
-
-    vTextToPrint = "MONDAY - " + time12hVal + " (" + time12hVal + ")";
-	vTextToPrint = "TUESDAY - " + time12hVal + " (" + time12hVal + ")";
-
-    var txtField = document.getElementById("textfield_1");
-    txtField.value = vTextToPrint;
-    //TextFieldApp.TextFieldApp.setValue(vTextToPrint);
-
   }
 
   render() {
@@ -67,7 +95,17 @@ class DialogApp extends React.Component {
           onRequestClose={this.handleClose}
 
         >
-          The actions in this window were passed in as an array of React objects.
+        <Entries entries={this.state.entries}/>
+        <ButtonApp onAddClick={this.onAddClick} onDeleteClick={this.onDeleteClick}/>
+        <tr>
+          <td>
+            <CheckboxApp1 onChange={this.onDayChange}/>
+          </td>
+          <td>
+            <TimePickerApp onChange={this.onDateChanged} />
+          </td>
+        </tr>
+
 
         </Dialog>
       </div>

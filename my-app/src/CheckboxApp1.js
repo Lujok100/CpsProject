@@ -3,7 +3,7 @@ import Checkbox from 'material-ui/Checkbox';
 
 const styles = {
     block: {
-        maxWidth: 250,
+        width: 250,
     },
     checkbox: {
         marginBottom: 16,
@@ -11,7 +11,7 @@ const styles = {
 };
 
 class CheckboxApp1 extends Component {
-//initalise the checkboxes in the construcor 
+
     constructor(props) {
         super(props);
 
@@ -35,7 +35,7 @@ class CheckboxApp1 extends Component {
                     label="MONDAY"
                     id="checkbox_mon"
                     type="checkbox"
-                    value="Monday"
+                    value="monday"
                     //checked={this.state.checked}
                     onCheck={this.handleCheck}
                     style={styles.checkbox}
@@ -44,7 +44,7 @@ class CheckboxApp1 extends Component {
                     label="TUESDAY"
                     id="checkbox_tue"
                     type="checkbox"
-                    value="Tuesday"
+                    value="tuesday"
                     //checked={this.state.checked}
                     onCheck={this.handleCheck}
                     style={styles.checkbox}
@@ -53,7 +53,7 @@ class CheckboxApp1 extends Component {
                     label="WEDNESDAY"
                     id="checkbox_wed"
                     type="checkbox"
-                    value="Wednesday"
+                    value="wednesday"
                     //checked={this.state.checked}
                     onCheck={this.handleCheck}
                     style={styles.checkbox}
@@ -62,7 +62,7 @@ class CheckboxApp1 extends Component {
                     label="THURSDAY"
                     id="checkbox_thu"
                     type="checkbox"
-                    value="Thursday"
+                    value="thursday"
                     //checked={this.state.checked}
                     onCheck={this.handleCheck}
                     style={styles.checkbox}
@@ -71,7 +71,7 @@ class CheckboxApp1 extends Component {
                     label="FRIDAY"
                     id="checkbox_fri"
                     type="checkbox"
-                    value="Friday"
+                    value="friday"
                     //checked={this.state.checked}
                     onCheck={this.handleCheck}
                     //onCheck={this.updateCheck.bind(this)}

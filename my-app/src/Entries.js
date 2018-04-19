@@ -25,8 +25,17 @@ class Entries extends React.Component {
         };
     }
 
+    static formatAMPM(date, hoursIncrements) {
+        let hours = date.getHours() + hoursIncrements;
+        let minutes = date.getMinutes();
+        let ampm = hours >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        return hours + ':' + minutes + ' ' + ampm;
+    }
+
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps.entries);
         this.setState({entries: nextProps.entries});
     }
 
@@ -57,10 +66,12 @@ class Entries extends React.Component {
                         stripedRows={this.state.stripedRows}
                     >
                         {this.state.entries.map(row => (
-                        <TableRow>
-                        <TableRowColumn>{row.date.toString()}</TableRowColumn>
-                        <TableRowColumn>{row.day}</TableRowColumn>
-                        </TableRow>
+                            <TableRow>
+                                <TableRowColumn>{Entries.formatAMPM(row.date,0)}
+- {Entries.formatAMPM(row.date,1)}
+                                </TableRowColumn>
+                                <TableRowColumn>{row.day}</TableRowColumn>
+                            </TableRow>
                         ))}
                     </TableBody>
                 </Table>

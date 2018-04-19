@@ -13,12 +13,18 @@ class ButtonApp extends React.Component {
         this.props.onAddClick();
     };
 
+    handleDelete = () => {
+        this.props.onDeleteClick();
+    };
+
     render() {
         return (
             <div>
-                <RaisedButton label="Delete" secondary={true} style={this.style}/>
+			<center>
+                <RaisedButton onClick={this.handleDelete} label="Delete" secondary={true} style={this.style}/>
                 <RaisedButton onClick={this.handleClick} label="Add" primary={true} style={this.style}/>
                 <br/>
+			</center>	
                 <br/>
 
             </div>

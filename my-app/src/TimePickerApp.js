@@ -1,6 +1,15 @@
 import React from 'react';
 import TimePicker from 'material-ui/TimePicker';
 
+const styles = {
+    block: {
+        maxWidth: 300,
+    },
+    checkbox: {
+        marginBottom: 16,
+    },
+};
+
 export default class TimePickerApp extends React.Component {
 
     constructor(props) {
@@ -19,22 +28,18 @@ export default class TimePickerApp extends React.Component {
 
     render() {
         return (
-            <div>
+            <div style={styles.block}>
                 <TimePicker
                     format="ampm"
                     id="timepicker_12h"
                     hintText="Start Time"
                     onChange={this.handleChangeTimePicker12}
-					autoOk={true}
-					minutesStep={5}
                 />
                 <TimePicker
                     format="ampm"
                     id="timepicker_24h"
                     hintText="End Time"
                     onChange={this.handleChangeTimePicker24}
-					autoOk={true}
-					minutesStep={5}
                 />
             </div>
         );
