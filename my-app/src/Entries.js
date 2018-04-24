@@ -26,8 +26,8 @@ class Entries extends React.Component {
     }
 
     static formatAMPM(date, hoursIncrements) {
-        let hours = date.getHours() + hoursIncrements;
-        let minutes = date.getMinutes();
+        let hours = Number(date.split(":")[0]) + hoursIncrements;
+        let minutes = Number(date.split(":")[1]);
         let ampm = hours >= 12 ? 'pm' : 'am';
         hours = hours % 12;
         hours = hours ? hours : 12; // the hour '0' should be '12'

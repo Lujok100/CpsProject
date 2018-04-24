@@ -86,7 +86,7 @@ class DialogApp extends React.Component {
 
     return (
       <div>
-        <RaisedButton label="Edit" onClick={this.handleOpen} />
+        <RaisedButton label="Dialog" onClick={this.handleOpen} />
         <Dialog
           title="Dialog With Actions"
           actions={actions}

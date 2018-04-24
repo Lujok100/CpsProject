@@ -20,11 +20,10 @@ class ButtonApp extends React.Component {
     render() {
         return (
             <div>
-			<center>
+               
                 <RaisedButton onClick={this.handleDelete} label="Delete" secondary={true} style={this.style}/>
                 <RaisedButton onClick={this.handleClick} label="Add" primary={true} style={this.style}/>
                 <br/>
-			</center>	
                 <br/>
 
             </div>
